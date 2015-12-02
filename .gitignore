@@ -12,3 +12,5 @@
 !/log/.keep
 /tmp
 
+config/secrets.yml
+config/couchdb.yml
