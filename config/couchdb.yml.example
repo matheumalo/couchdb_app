@@ -2,10 +2,10 @@ development: &development
   protocol: 'http'
   host: localhost
   port: 5984
-  prefix: tweets
+  prefix: 
   suffix: 
-  username: mmalo
-  password: ThisIsFun
+  username: 
+  password: 
 
 test:
   <<: *development
@@ -13,9 +13,9 @@ test:
 
 production:
   protocol: 'https'
-  host: 104.196.6.59
+  host: example
   port: 5984
-  prefix: tweets
+  prefix: 
   suffix: 
-  username: mmalo
-  password: ThisIsFun2015
+  username: 
+  password: 
