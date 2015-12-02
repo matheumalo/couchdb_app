@@ -1,0 +1,21 @@
+development: &development
+  protocol: 'http'
+  host: localhost
+  port: 5984
+  prefix: tweets
+  suffix: 
+  username: mmalo
+  password: ThisIsFun
+
+test:
+  <<: *development
+  suffix: test
+
+production:
+  protocol: 'https'
+  host: 104.196.6.59
+  port: 5984
+  prefix: tweets
+  suffix: 
+  username: mmalo
+  password: ThisIsFun2015

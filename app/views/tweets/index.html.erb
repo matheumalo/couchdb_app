@@ -1,0 +1,8 @@
+<h1>Most Mentioned Users</h1>
+
+<% @tweets.each do |tweet| %> 
+  <p>
+    <%= tweet['key']%>
+    <img src="<%= tweet['value'] %>">
+  </p>
+<% end %>
