@@ -10,7 +10,7 @@
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-        <td><%= tweet['key'] %></td>
+        <td><%= link_to tweet['key'], "http://twitter.com/#{tweet['key']}" %></td>
         <td><%= tweet['value'] %></td>
       </tr>
     <% end %>
