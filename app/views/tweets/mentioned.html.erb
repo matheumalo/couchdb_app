@@ -1,0 +1,21 @@
+<h1>Most Mentioned User</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Mentioned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet['key'] %></td>
+        <td><%= tweet['value'] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+  
