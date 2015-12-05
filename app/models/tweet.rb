@@ -7,6 +7,10 @@ class Tweet < CouchRest::Model::Base
   
 
   design do
+
+    reduce_sum = "function(keys, values, rereduce) {
+          return sum(values);
+        }"
     view :by_profile,:map =>"function(doc) {
       var name = doc.tweet_data.user.screen_name;
         if (name){
@@ -30,9 +34,18 @@ class Tweet < CouchRest::Model::Base
             });
         }
     }
-    }",:reduce => "function(keys, values, rereduce) {
-          return sum(values);
-        }"
+    }",:reduce => reduce_sum
+    
+    # All mentioned hash tag topics
+    view :hashtag, :map => 'function(doc) {
+    if(doc.tweet_data.entities){
+        if(doc.tweet_data.entities.hashtags){
+            doc.tweet_data.entities.hashtags.forEach(function(hashtag){
+                emit("#"+hashtag.text.toLowerCase(),1)
+            });
+        }
+    }
+}', :reduce => reduce_sum
   end
 end
 

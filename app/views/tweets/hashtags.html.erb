@@ -1,0 +1,18 @@
+<h1>Most mentioned Hashtag topics </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hashtag</th>
+      <th>Mentioned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet['key'] %></td>
+        <td><%= tweet['value'] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

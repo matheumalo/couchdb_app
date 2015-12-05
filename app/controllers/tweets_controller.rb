@@ -8,6 +8,9 @@ class TweetsController < ApplicationController
     @tweets = most_mentioned.rows.sort_by{ |a| a['value']}.reverse.take(10)
   end
 
-
+  def hashtags
+    hashtags = Tweet.hashtag.reduce.group_level(1)
+    @tweets = hashtags.rows.sort_by{ |a| a['value']}.reverse.take(20)
+  end
 
 end
