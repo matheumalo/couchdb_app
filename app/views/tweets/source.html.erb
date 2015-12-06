@@ -9,6 +9,11 @@
     </tr>
   </thead>
   <tbody>
-   <%= render 'table' %>
+   <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= sanitize tweet['key'], tags: %w(a), attributes: %w(href) %></td>
+        <td><%= tweet['value'] %></td>
+      </tr>
+<% end %>
 </tbody>
 </table>
