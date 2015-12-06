@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   get 'tweets' => 'tweets#index'
   get 'mentioned' => 'tweets#mentioned'
   get 'hashtags' => 'tweets#hashtags'
+  get 'source' => 'tweets#source'
 
-
-
-
-  
 end

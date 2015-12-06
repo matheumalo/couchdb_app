@@ -46,6 +46,14 @@ class Tweet < CouchRest::Model::Base
         }
     }
 }', :reduce => reduce_sum
+
+    # Source use for tweeting
+    view :by_source, :map => 'function(doc) {
+        if (doc.tweet_data.source){
+        emit(doc.tweet_data.source, 1);
+      }
+    }', :reduce => reduce_sum
+
   end
 end
 

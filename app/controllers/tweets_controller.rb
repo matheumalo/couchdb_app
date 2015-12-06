@@ -13,4 +13,9 @@ class TweetsController < ApplicationController
     @tweets = hashtags.rows.sort_by{ |a| a['value']}.reverse.take(20)
   end
 
+  def source
+    source = Tweet.by_source.reduce.group_level(1)
+    @tweets = source.rows.sort_by{ |a| a['value']}.reverse
+  end
+
 end
