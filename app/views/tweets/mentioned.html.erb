@@ -1,6 +1,7 @@
+<% provide(:title, "Most Mentioned User") %>
 <h1>Most Mentioned User</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -8,13 +9,8 @@
     </tr>
   </thead>
   <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= link_to tweet['key'], "http://twitter.com/#{tweet['key']}" %></td>
-        <td><%= tweet['value'] %></td>
-      </tr>
-    <% end %>
-  </tbody>
+   <%= render 'table' %>
+</tbody>
 </table>
 
 

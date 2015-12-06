@@ -1,6 +1,8 @@
-<h1>Most mentioned Hashtag topics </h1>
+<% provide(:title, "Hashtags") %>
 
-<table>
+<h1>#Hashtags</h1>
+
+<table class="table">
   <thead>
     <tr>
       <th>Hashtag</th>
@@ -8,11 +10,6 @@
     </tr>
   </thead>
   <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= link_to tweet['key'], "http://twitter.com/#{tweet['key']}" %></td>
-        <td><%= tweet['value'] %></td>
-      </tr>
-    <% end %>
+    <%= render 'table' %>
   </tbody>
 </table>
