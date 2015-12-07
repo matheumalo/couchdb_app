@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get 'mentioned' => 'tweets#mentioned'
   get 'hashtags' => 'tweets#hashtags'
   get 'source' => 'tweets#source'
+  get 'coordinates' => 'tweets#coordinates'
 
 end

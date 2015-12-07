@@ -1,0 +1,20 @@
+<% provide(:title, "Source of Tweet") %>
+<h1>Coordinates</h1>
+<h2>ipsum lorem</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet['key'] %></td>
+        <td><%= tweet['value']['coordinates'] %></td>
+      </tr>
+<% end %>
+</tbody>
+</table>

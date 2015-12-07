@@ -20,4 +20,10 @@ class TweetsController < ApplicationController
     @tweets = source.rows.sort_by{ |a| a['value']}.reverse
   end
 
+  def coordinates
+    coordinates = Tweet.by_coordinates
+    @tweets = coordinates.rows
+    
+  end
+
 end

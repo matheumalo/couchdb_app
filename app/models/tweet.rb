@@ -54,6 +54,13 @@ class Tweet < CouchRest::Model::Base
       }
     }', :reduce => reduce_sum
 
+    # Identify if the tweet have coordinate
+    view :by_coordinates, :map => 'function(doc) {
+        if (doc.tweet_data.coordinates){
+        emit(doc.tweet_data._id, doc.tweet_data.coordinates);
+      }
+    }'
+
   end
 end
 
