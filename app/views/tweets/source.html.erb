@@ -1,16 +1,20 @@
 <% provide(:title, "Source of Tweet") %>
-<h1>Source</h1>
+<h1>Fuente</h1>
+<h2>Plataforma donde fue originado el tweet</h2>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Source</th>
-      <th>Number</th>
+      <th>Posición</th>
+      <th>Fuente</th>
+      <th>Cantidad</th>
     </tr>
   </thead>
   <tbody>
+    <% counter = 0 %>
    <% @tweets.each do |tweet| %>
       <tr>
+        <td><%= counter += 1 %></td>
         <td><%= sanitize tweet['key'], tags: %w(a), attributes: %w(href) %></td>
         <td><%= tweet['value'] %></td>
       </tr>
