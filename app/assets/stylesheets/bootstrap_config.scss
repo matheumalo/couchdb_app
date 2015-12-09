@@ -49,3 +49,51 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+#map-container {
+   height: 400px;
+   border-radius: 16px 16px;
+   border-color: #fff;
+   border-style: solid;
+   box-shadow: 2px 2px 10px #B1B1B1;
+   margin-top: 25px;
+   border-width: 7px;
+ }
+ #map-canvas {
+   height: 384px;
+   width: 100%;
+ }
+
+
+
+ .jumbotron {
+  color: #fff;
+  position: relative;
+  background: #fff url('bg_gye.jpg') center center;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  z-index: -1;
+
+ }
+
+ .jumbotext {
+  z-index: 1;
+ }
+
+ .jumbotext h1 {
+  color: #000;
+  opacity: 1;
+ }
+
+ .jumbotext h2 {
+  color: #FFF;
+  position: relative;
+  background: #000;
+  padding: 1em;
+  width: 50%;
+  margin-bottom: 1em;
+  opacity: 0.8;
+ }
