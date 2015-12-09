@@ -11,15 +11,15 @@
 <table class="table">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Coordinates</th>
+      <th>latitud</th>
+      <th>longitud</th>
     </tr>
   </thead>
   <tbody>
    <% @tweets.each do |tweet| %>
       <tr>
-        <td><%= tweet['key'] %></td>
-        <td><%= tweet['value']['coordinates'] %></td>
+        <td><%= tweet['lat'] %></td>
+        <td><%= tweet['lng'] %></td>
       </tr>
 <% end %>
 </tbody>

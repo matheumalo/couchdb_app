@@ -84,7 +84,7 @@ class Tweet < CouchRest::Model::Base
           bounding_box = [[-80.0990009,-2.2873981],[-80.0990009,-2.0173767],[-79.8608184,-2.0173767],[-80.0990009,-2.2873981],[-80.0990009,-2.2873981]]
           point = doc.tweet_data.coordinates.coordinates;
           if (inside_box(point,bounding_box)) {
-    emit(doc.tweet_data._id, doc.tweet_data.coordinates);
+    emit(doc.tweet_data._id, point);
   }
           
       }'+ INSIDE_BOX +

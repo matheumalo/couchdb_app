@@ -21,9 +21,21 @@ class TweetsController < ApplicationController
   end
 
   def coordinates
-    coordinates = Tweet.by_coordinates
-    @tweets = coordinates.rows
+    @tweets = to_gmaps_coordinates(Tweet.by_coordinates.rows)
+
     
   end
 
+
+private
+  def to_gmaps_coordinates(rows)
+    coord_array = []
+    rows.each do |row|
+      coordinates_hash = {}
+      coordinates_hash['lng'] = row['value'][0]
+      coordinates_hash['lat'] = row['value'][1]
+      coord_array.push(coordinates_hash)
+    end
+    return coord_array
+  end
 end
