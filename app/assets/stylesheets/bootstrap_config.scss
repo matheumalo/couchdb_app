@@ -69,7 +69,7 @@ p {
  .jumbotron {
   color: #fff;
   position: relative;
-  background: #fff url('bg_gye.jpg') center center;
+  background: #fff asset-data-url('bg_gye.jpg') center center;
   opacity: 0.8;
   width: 100%;
   height: 100%;
