@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: { maxZoom: 10}, internal: {id: 'map'}}, function(){
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     handler.map.centerOn({ lat: -2.1649033, lng: -79.9260202 })
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
