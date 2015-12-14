@@ -4,6 +4,9 @@ class Tweet < CouchRest::Model::Base
   
   property :_id, String
   property :tweet_data, String
+  property :lat, Float
+  property :lng, Float
+
   
 
   design do

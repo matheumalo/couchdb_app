@@ -22,8 +22,10 @@ class TweetsController < ApplicationController
 
   def coordinates
     @tweets = to_gmaps_coordinates(Tweet.by_coordinates.rows)
-
-    
+    @hash = Gmaps4rails.build_markers(@tweets) do |tweet, marker|
+      marker.lat tweet['lat']
+      marker.lng tweet['lng']
+    end
   end
 
 

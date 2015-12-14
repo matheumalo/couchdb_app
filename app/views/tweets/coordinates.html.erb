@@ -4,23 +4,24 @@
 
 <p>Total of tweets with coordinates <%= @tweets.count %></p>
 
-<div id="map-container">
-  <div id="map-canvas"></div>
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>latitud</th>
-      <th>longitud</th>
-    </tr>
-  </thead>
-  <tbody>
-   <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet['lat'] %></td>
-        <td><%= tweet['lng'] %></td>
-      </tr>
-<% end %>
-</tbody>
-</table>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: { maxZoom: 10}, internal: {id: 'map'}}, function(){
+    handler.map.centerOn({ lat: -2.1649033, lng: -79.9260202 })
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
+
+<script>  
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+</script>
+
+
+
+
+  
