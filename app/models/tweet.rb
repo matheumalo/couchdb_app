@@ -84,15 +84,11 @@ class Tweet < CouchRest::Model::Base
     # Identify if the tweet have coordinate
     view :by_coordinates, :map => 'function(doc) {
         if (doc.tweet_data.coordinates){
-          /* bounding_box = [[-80.3553771973,-2.5342684656],[-80.3553771973,-1.6985121551],[-79.3981933594,-1.6985121551],[-80.3553771973,-2.5342684656],[-80.3553771973,-2.5342684656]]
-          point = doc.tweet_data.coordinates.coordinates;
-          if (inside_box(point,bounding_box)) {
-    emit(doc.tweet_data._id, point);*/
-      emit(doc.tweet_data._id, doc.tweet_data.coordinates.coordinates);
-    
-          
-      }'+ INSIDE_BOX +
-    '}'
+          coordinates = doc.tweet_data.coordinates.coordinates
+          text = doc.tweet_data.text
+      emit(doc.tweet_data._id, [coordinates, text]);
+        }
+      }'
 
   end
 end

@@ -25,6 +25,8 @@ class TweetsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@tweets) do |tweet, marker|
       marker.lat tweet['lat']
       marker.lng tweet['lng']
+      marker.infowindow tweet['info']
+
     end
   end
 
@@ -34,10 +36,15 @@ private
     coord_array = []
     rows.each do |row|
       coordinates_hash = {}
-      coordinates_hash['lng'] = row['value'][0]
-      coordinates_hash['lat'] = row['value'][1]
+      coordinates_hash['lng'] = row['value'][0][0]
+      coordinates_hash['lat'] = row['value'][0][1]
+      coordinates_hash['info'] = row['value'][1]
       coord_array.push(coordinates_hash)
     end
     return coord_array
   end
+
+   def gmaps4rails_infowindow
+      "<p>#{self.info}<p>"
+   end
 end
