@@ -12,6 +12,6 @@
     </tr>
   </thead>
   <tbody>
-    <%= render 'table' %>
+     <%= render partial: 'table', locals: {tweets: @tweets} %>
   </tbody>
 </table>
