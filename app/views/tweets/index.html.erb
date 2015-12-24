@@ -1,8 +1,32 @@
-<h1>Most Mentioned Users</h1>
+<h1>Data</h1>
 
-<% @tweets.each do |tweet| %> 
-  <p>
-    <%= tweet['key']%>
-    <img src="<%= tweet['value'] %>">
-  </p>
-<% end %>
+<h3>Total tweets almacenados: <strong><%= @total %></strong></h3> 
+
+
+<h2>Top Ten hashtags</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Posición</th>
+      <th>Hashtag</th>
+      <th>Menciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'table', locals: {tweets: @tweets['hashtags']} %>
+  </tbody>
+</table>
+
+<h2>Top 20 twitteros con mayor mencion</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Posición</th>
+      <th>Hashtag</th>
+      <th>Menciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'table', locals: {tweets: @tweets['most_mentioned']} %>
+  </tbody>
+</table>

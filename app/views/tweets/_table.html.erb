@@ -1,6 +1,6 @@
 
  <% counter = 0 %>
- <% @tweets.each do |tweet| %>
+ <% tweets.each do |tweet| %>
       <tr>
         <td><%= counter += 1  %></td>
         <td><%= link_to tweet['key'], "http://twitter.com/#{tweet['key']}" %></td>

@@ -34,12 +34,11 @@ class Tweet < CouchRest::Model::Base
     
     return inside;
 };'
-    view :by_profile,:map =>"function(doc) {
-      var name = doc.tweet_data.user.screen_name;
-        if (name){
-        emit(doc._id, name);
+    view :all_tweets ,:map =>'function(doc) {
+        if (doc.tweet_data){
+        emit(doc._id, 1);
       }
-    }"
+    }'
     # Displays screen_name and profile image url
     view :by_pic,:map =>"function(doc) {
       var name = doc.tweet_data.user.screen_name;

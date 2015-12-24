@@ -2,7 +2,14 @@
 
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.by_pic.rows
+    most_mentioned = Tweet.by_most_mentioned.reduce.group_level(1)
+    most_mentioned_rows = most_mentioned.rows.sort_by{ |a| a['value']}.reverse.take(10)
+
+    hashtags = Tweet.hashtag.reduce.group_level(1)
+    hashtags_rows = hashtags.rows.sort_by{ |a| a['value']}.reverse.take(20)
+
+    @tweets = Hash["most_mentioned" => most_mentioned_rows, "hashtags" => hashtags_rows]
+    @total = Tweet.all_tweets.count
   end
 
   def mentioned
