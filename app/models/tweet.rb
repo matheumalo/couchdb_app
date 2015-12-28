@@ -84,7 +84,7 @@ class Tweet < CouchRest::Model::Base
     view :tweets_per_hour, :map => 'function(doc) {
   date = new Date(Date.parse((doc.tweet_data.created_at)));
   weekday = getWeekday(date.getDay())
-  hour = date.getUTCHours()
+  hour = date.getHours()
   emit([weekday,hour], 1)
 }
 
