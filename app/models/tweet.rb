@@ -80,6 +80,36 @@ class Tweet < CouchRest::Model::Base
       }
     }', :reduce => REDUCE_SUM
 
+    #most frequently tweeted hour
+    view :tweets_per_hour, :map => 'function(doc) {
+  date = new Date(Date.parse((doc.tweet_data.created_at)));
+  weekday = getWeekday(date.getDay())
+  hour = date.getUTCHours()
+  emit([weekday,hour], 1)
+}
+
+function getWeekday(day){
+  switch(parseInt(day)){
+    case 0:
+      return "domingo"
+    case 1:
+      return "lunes"
+    case 2:
+      return "marte"
+    case 3:
+      return "miercoles"
+    case 4:
+      return "jueves"
+    case 5:
+      return "viernes"
+    case 6:
+      return "sabado"
+    default:
+      return "no definido"
+  }
+}', :reduce => REDUCE_SUM
+
+
     # Identify if the tweet have coordinate
     view :by_coordinates, :map => 'function(doc) {
         if (doc.tweet_data.coordinates){
