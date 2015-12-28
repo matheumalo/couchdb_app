@@ -30,3 +30,11 @@
     <%= render partial: 'table', locals: {tweets: @tweets['most_mentioned']} %>
   </tbody>
 </table>
+
+<h2>Plataforma donde fue originado el tweet</h2>
+<%= content_tag :div, nil, id:'piechart', data: {data: @tweets['source']} %>
+
+<%= javascript_include_tag "piechart.js" %>
+
+</tbody>
+</table>

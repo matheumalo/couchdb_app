@@ -1,14 +1,10 @@
 data = $('#piechart').data('data');
 
-console.log(data);
 
 var w = 600,                        //width
     h = 600,                            //height
     r = 200,                            //radius
     color = d3.scale.category20c();     //builtin range of colors
-    /*data = [{"label":"one", "value":20},
-            {"label":"two", "value":50},
-            {"label":"three", "value":30}];*/
     
     var vis = d3.select("#piechart")
         .append("svg:svg")              //create the SVG element inside the <body>
@@ -37,4 +33,10 @@ var w = 600,                        //width
                 return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
             })
             .attr("text-anchor", "middle")                          //center the text on it's origin
-            .text(function(d, i) { return data[i].key; });        //get the label from our original data array
+            .text(function(d, i) { return stripHtmlTag(data[i].key); });        //get the label from our original data array
+
+function stripHtmlTag(str){
+    var StrippedString = str.replace(/(<([^>]+)>)/ig,"");
+    return StrippedString;
+
+}
