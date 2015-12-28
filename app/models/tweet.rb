@@ -95,7 +95,7 @@ function getWeekday(day){
     case 1:
       return "lunes"
     case 2:
-      return "marte"
+      return "martes"
     case 3:
       return "miercoles"
     case 4:

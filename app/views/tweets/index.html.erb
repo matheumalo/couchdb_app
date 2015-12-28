@@ -36,6 +36,7 @@
 
 <%= javascript_include_tag "piechart.js" %>
 
+
 <% @tweets['tweets_per_hour'].each do |tweet| %>
   <p><strong><%= tweet['key'] %></strong> | <%= tweet['value'] %> </p>
 <% end %>

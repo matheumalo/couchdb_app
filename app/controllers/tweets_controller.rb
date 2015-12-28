@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
     source = Tweet.by_source.reduce.group_level(1)
     source_rows = source.rows.sort_by{ |a| a['value']}.reverse.take(10)
 
-    tweets_per_hour = Tweet.tweets_per_hour.reduce.group_level(1)
+    tweets_per_hour = Tweet.tweets_per_hour.reduce.group_level(2)
     tweets_per_hour_rows = tweets_per_hour.rows.sort_by{ |a| a['value']}.reverse
 
     @tweets = Hash["most_mentioned" => most_mentioned_rows, "hashtags" => hashtags_rows, "source" => source_rows, "tweets_per_hour" => tweets_per_hour_rows]
@@ -32,8 +32,6 @@ class TweetsController < ApplicationController
     source = Tweet.by_source.reduce.group_level(1)
     @tweets = source.rows.sort_by{ |a| a['value']}.reverse
   end
-
-
 
   def coordinates
     @tweets = to_gmaps_coordinates(Tweet.by_coordinates.rows)
