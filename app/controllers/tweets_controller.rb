@@ -9,7 +9,7 @@ class TweetsController < ApplicationController
     hashtags_rows = hashtags.rows.sort_by{ |a| a['value']}.reverse.take(20)
 
     source = Tweet.by_source.reduce.group_level(1)
-    source_rows = source.rows.sort_by{ |a| a['value']}.reverse
+    source_rows = source.rows.sort_by{ |a| a['value']}.take(10)
 
     @tweets = Hash["most_mentioned" => most_mentioned_rows, "hashtags" => hashtags_rows, "source" => source_rows]
     @total = Tweet.all_tweets.count
