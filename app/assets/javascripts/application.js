@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require underscore
 //= require gmaps/google
+//= require d3/d3.min.js
 //= require_tree .

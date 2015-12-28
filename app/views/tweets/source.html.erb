@@ -18,5 +18,10 @@
         <td><%= tweet['value'] %></td>
       </tr>
 <% end %>
+
 </tbody>
 </table>
+
+<%= content_tag :div, nil, id:'piechart', data: {data: @tweets} %>
+
+<%= javascript_include_tag "piechart.js" %>

@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
 
   def source
     source = Tweet.by_source.reduce.group_level(1)
-    @tweets = source.rows.sort_by{ |a| a['value']}.reverse
+    @tweets = source.rows.sort_by{ |a| a['value']}.reverse.take(5)
   end
 
   def coordinates
