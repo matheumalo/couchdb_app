@@ -1,6 +1,9 @@
 data = $('#heatmap').data('data');
 
+var latlng = getPoints(data);
+
 var map;
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('heatmap'), {
     center: {lat: -2.1649033, lng: -79.9260202},
@@ -8,20 +11,23 @@ function initMap() {
   });
 
   heatmap = new google.maps.visualization.HeatmapLayer({
-    data: getPoints(data),
+    data: latlng,
     map: map
   });
 }
 
 
 function getPoints(data){
-  var mvcArray = new google.maps.MVCArray();
+  var array = [];
   data.forEach(function(d) {
-    mvcArray.push(new google.maps.LatLng(d.lat, d.lng));
+    array.push(new google.maps.LatLng(parseFloat(d.lat), parseFloat(d.lng)));
   });
-  return mvcArray;
+  return array;
 
 }
+
+
+
 
 
 
