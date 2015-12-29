@@ -43,7 +43,7 @@ class TweetsController < ApplicationController
   end
 
   def heatmap
-    @tweets = to_gmaps_coordinates(Tweet.by_coordinates.rows).take(10000)
+    @tweets = to_gmaps_coordinates(Tweet.by_coordinates.rows).take(6000)
     @total = Tweet.by_coordinates.rows.count
 
   end
