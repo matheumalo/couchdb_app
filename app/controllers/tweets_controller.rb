@@ -42,6 +42,12 @@ class TweetsController < ApplicationController
     end
   end
 
+  def heatmap
+    @tweets = to_gmaps_coordinates(Tweet.by_coordinates.rows)
+    @total = Tweet.by_coordinates.rows.count
+
+  end
+
 
 private
   def to_gmaps_coordinates(rows)

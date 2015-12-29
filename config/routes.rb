@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'hashtags' => 'tweets#hashtags'
   get 'source' => 'tweets#source'
   get 'coordinates' => 'tweets#coordinates'
+  get 'heatmap' => 'tweets#heatmap'
 
 end

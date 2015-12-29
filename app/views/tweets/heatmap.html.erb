@@ -1,0 +1,14 @@
+<% provide(:title, "Heat Map") %>
+<h1>Heat Map</h1>
+<h2>Zonas donde se generan tweets</h2>
+
+<p>Total of tweets with coordinates <%= @total %></p>
+
+<div id='map-container'>
+  <%= content_tag :div, nil, id:'heatmap', data: {data: @tweets.to_json}%>
+</div>
+
+<%= javascript_include_tag "heatmap.js" %>
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCtSvttGCu7KaM6UYrL6SpyS6kZ1DH2b6s&signed_in=true&libraries=visualization&callback=initMap", :async => true, :defer => "defer" %>
+
