@@ -119,6 +119,13 @@ function getWeekday(day){
         }
       }'
 
+      view :heat_map, :map => 'function(doc) {
+        if (doc.tweet_data.coordinates){
+          coordinates = doc.tweet_data.coordinates.coordinates 
+      emit(coordinates, 1);
+        }
+      }', :reduce => REDUCE_SUM
+
   end
 end
 

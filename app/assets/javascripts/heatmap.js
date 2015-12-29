@@ -15,13 +15,11 @@ function initMap() {
 
 
 function getPoints(data){
-  var points = [],
-      str = 'new google.maps.LatLng';
+  var mvcArray = new google.maps.MVCArray();
   data.forEach(function(d) {
-    points.push(new google.maps.LatLng(d.lat, d.lng));
-
+    mvcArray.push(new google.maps.LatLng(d.lat, d.lng));
   });
-  return points;
+  return mvcArray;
 
 }
 
